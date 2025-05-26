@@ -1,17 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
 import styles from './src/styles.js';
-import * as SplashScreen from 'expo-splash-screen';
-import { Button, TextInput, Text, View, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons } from '@expo/vector-icons';
-SplashScreen.preventAutoHideAsync();
+import Stack1  from './src/stack1/Stack1.js'
 export default function App() {
-  SplashScreen.hideAsync();
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+    <SafeAreaView style={{ flex: 1 }}>
+        <Stack1 />
+      </SafeAreaView>
+    </NavigationContainer>
   );
 }
