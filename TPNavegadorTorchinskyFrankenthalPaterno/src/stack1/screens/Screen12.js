@@ -1,39 +1,38 @@
-import React from 'react';
-import { Button, TextInput, Text, View, TouchableOpacity, StyleSheet } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
+import React, { useState } from 'react';
+import { View, TextInput, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import styles from '../../styles';
 
 function Screen12() {
-  const navigationHook = useNavigation();
-
-  const handleNavigate = () => {
-    navigationHook.navigate('Screen11');
-  };
+  const navigation = useNavigation();
+  const [nombre, setNombre] = useState('');
+  const [telefono, setTelefono] = useState('');
 
   return (
-    <View style={styles.container}>
-      <StatusBar style="dark" />
-      <TouchableOpacity style={styles.menuItem01} onPress={handleNavigate}>
-        <Text style={styles.menuItemText}>SCREEN 2</Text>
+    <View style={[styles.container, { backgroundColor: 'pink' }]}>
+      <Text style={styles.text}>Nombre</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Ingresá tu nombre"
+        onChangeText={setNombre}
+      />
+      <Text style={styles.text}>Teléfono</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Ingresá tu teléfono"
+        keyboardType="phone-pad"
+        onChangeText={setTelefono}
+      />
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Screen11')}
+      >
+        <Text style={styles.buttonText}>VOLVER</Text>
       </TouchableOpacity>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  menuItem01: {
-    padding: 10,
-    backgroundColor: 'lightblue',
-    borderRadius: 5,
-  },
-  menuItemText: {
-    fontSize: 18,
-  }
-});
 
 export default Screen12;

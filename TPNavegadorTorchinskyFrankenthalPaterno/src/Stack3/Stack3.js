@@ -1,4 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Screen31 from './screens/Screen31';
+import Screen32 from './screens/Screen32';
 const Stack3 = createNativeStackNavigator();
 function Stack3Navigator() {
     return (
